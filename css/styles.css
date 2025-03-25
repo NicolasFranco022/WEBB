@@ -22,7 +22,7 @@ header {
     box-shadow: 0 4px 8px rgba(248, 248, 248, 0.2);
     font-size: 13px;
     display: flex;
-    gap: 100px;
+    justify-content: center;
 }
 
 .titulo-container{
