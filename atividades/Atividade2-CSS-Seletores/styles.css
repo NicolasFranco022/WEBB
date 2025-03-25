@@ -1,0 +1,109 @@
+/* remove margens e preenchimentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+.navbar {
+    background-color: #003399;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+    height: 90px;
+    box-sizing: border-box;
+}
+
+.nav-content {
+    display: flex;
+    gap: 15px;
+    align-items: stretch; 
+    box-sizing: border-box;
+}
+
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
+    box-sizing: border-box;
+}
+
+
+.navbar i {
+    font-size: 40px;
+}
+
+.divider {
+    display: inline-block;
+    width: 2px;
+    background-color: white; 
+    margin: 0 10px;
+    align-self: stretch;
+    box-sizing: border-box;
+}
+
+.divider1 {
+    height: 10px;
+    display: inline-block;
+    align-self: center; 
+    }
+
+    /* barrinha azul em baixo da navbar principal */
+.sub-navbar {
+    width: 100%;
+    height: 6px; 
+    background-color: #bbd4fa; 
+    }
+
+    /*imagem */
+.news-box {
+    width: 100%; 
+    height: 100vh; /* altura da tela */
+    background: url('image.png') no-repeat center center;
+    background-size: cover; /* image preenche o espaço */
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+
+.news-content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #07296e;
+    padding: 0px;
+    border-radius: 10px;
+    text-align: left; 
+}
+
+
+
+/* estilização do título */
+.news-content h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+
+.news-content ul {
+    list-style-type: disc; /* adiciona bolinhas */
+    padding-left: 25px; 
+}
+
+/* joa */
+
+.news-content li {
+    font-size: 25px;
+    margin: 5px 0;
+}

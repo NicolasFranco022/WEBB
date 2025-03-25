@@ -1,0 +1,73 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Corpo com tema escuro */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(248, 248, 248, 0.2);
+}
+
+header h1 {
+    color: #0000008e;
+}
+
+header p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Seção de atividades */
+.atividades {
+    margin-top: 30px;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(242, 253, 247, 0.2);
+}
+
+.atividades h2 {
+    color: #00000086;
+}
+
+.atividades ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.atividades li {
+    margin: 10px 0;
+}
+
+.atividades a {
+    color: #386570;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.atividades a:hover {
+    text-decoration: underline;
+    color: #05643c;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #888;
+}
