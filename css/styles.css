@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,42 +6,51 @@
     font-family: Arial, sans-serif;
 }
 
-/* Corpo com tema escuro */
+
 body {
     background-color: #121212;
     color: #e0e0e0;
     text-align: center;
-    padding: 20px;
+    padding: 100px;
 }
 
-/* Cabeçalho */
+
 header {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
+    background: #7e3b3bec;
+    padding: 30px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(248, 248, 248, 0.2);
+    font-size: 13px;
+    display: flex;
+    gap: 100px;
+}
+
+.titulo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header h1 {
-    color: #0000008e;
+    color: #000000;
 }
 
 header p {
-    font-size: 16px;
+    font-size: 14px;
     color: #ccc;
 }
 
-/* Seção de atividades */
+
 .atividades {
     margin-top: 30px;
-    background: #1e1e1e;
+    background: #7e3b3bec;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(242, 253, 247, 0.2);
 }
 
 .atividades h2 {
-    color: #00000086;
+    color: #000000;
 }
 
 .atividades ul {
@@ -54,7 +63,7 @@ header p {
 }
 
 .atividades a {
-    color: #386570;
+    color: #a7baf0d7;
     text-decoration: none;
     font-size: 18px;
     transition: 0.3s;
@@ -62,12 +71,23 @@ header p {
 
 .atividades a:hover {
     text-decoration: underline;
-    color: #05643c;
+    color: #c6a7c7;
 }
 
-/* Rodapé */
+
 footer {
     margin-top: 50px;
     font-size: 14px;
     color: #888;
+}
+
+.foto-perfil {
+    width: 80px;  
+    height: 80px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #fff; 
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); 
+    margin-right: 15px; 
+    vertical-align: middle; 
 }
