@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game - Gatos</title>
+    <link rel="icon" href="images/memory_icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/memory_icon.png" height="80px" width="80px">
+        <h1 class="title">PLAY NOW!</h1>
+    </header>
+
+    <div class="container-game" id="game-board"></div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            const gameBoard = document.getElementById("game-board");
+
+            let uniqueCards = ["images/gato1.jpeg", "images/gato2.jpeg", "images/gato3.jpg", "images/gato4.jpeg"];
+            let cards = [...uniqueCards, ...uniqueCards];
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            shuffle(cards);
+
+            gameBoard.innerHTML = "";
+            cards.forEach((src, index) => {
+                let cardWrap = document.createElement("div");
+                cardWrap.classList.add("card-wrap");
+                cardWrap.setAttribute("onclick", `showHide('card-${index}')`);
+
+                let cardImg = document.createElement("img");
+                cardImg.classList.add("card-img");
+                cardImg.setAttribute("id", `card-${index}`);
+                cardImg.setAttribute("src", src);
+                cardImg.setAttribute("alt", "Imagem do Jogo da Memória de Gatos");
+                cardImg.setAttribute("height", "270px");
+                cardImg.setAttribute("width", "240px");
+
+                cardWrap.appendChild(cardImg);
+                gameBoard.appendChild(cardWrap);
+            });
+        });
+
+        function showHide(id) {
+            const card = document.querySelector(`#${id}`);
+            if (window.getComputedStyle(card).getPropertyValue('visibility') === "visible") {
+                card.style.setProperty('visibility', 'hidden');
+            } else {
+                card.style.setProperty('visibility', 'visible');
+            }
+        }
+    </script>
+</body>
+</html>

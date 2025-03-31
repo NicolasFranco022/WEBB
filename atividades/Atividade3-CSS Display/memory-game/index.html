@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="icon" href="images\memory_icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="images\memory_icon.png" height="80px" width="80px" alt="Ícone do jogo da memória">
+        <h1 class="title">MEMORY GAME</h1>
+    </header>
+    <main>
+        <h1 id="selection">SELEÇÃO</h1>
+        <div class="container">
+            <a href="cachorro.html" target="_blank" aria-label="Jogo da memória de cachorros" onmouseover="selection('Cachorro')" onmouseleave="hide()">
+                <img class="card" id="Cachorro" src="images/cachorrocapa.jpeg" alt="Imagem dos Cachorros" height="270px" width="240px">
+            </a>
+            <a href="gato.html" target="_blank" aria-label="Jogo da memória de gatos" onmouseover="selection('Gato')" onmouseleave="hide()">
+                <img class="card" id="Gato" src="images/gatocapa.jpg" alt="Imagem dos gatos" height="270px" width="240px">
+            </a>
+            <a href="cavalo.html" target="_blank" aria-label="Jogo da memória de cavalos" onmouseover="selection('Cavalo')" onmouseleave="hide()">
+                <img class="card" id="Cavalo" src="images/cavalocapa.jpg" alt="Imagem dos cavalos" height="270px" width="240px">
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p class="footer-text">Desenvolvimento: Nicolas Franco</p>
+    </footer>
+    <script type="text/javascript">
+        function selection(selection) {
+            const text = document.querySelector('#selection');
+            text.style.setProperty('visibility', 'visible');
+            text.innerHTML = selection;
+        }
+
+        function hide() {
+            const text = document.querySelector('#selection');
+            text.style.setProperty('visibility', 'hidden');
+        }
+    </script>
+</body>
+</html>

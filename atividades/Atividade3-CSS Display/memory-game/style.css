@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    height: 40px;
+    background: linear-gradient(to right, darkblue, lightblue);
+    text-align: center;
+    padding: 30px 30px
+}
+
+
+.logo {
+    display: inline;
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    border-radius: 50%;
+
+}
+
+.title {
+    color: white;
+    text-shadow: 3px 6px 2px black;
+    display: inline;
+    font-size: 42px;
+
+}
+
+#selection {
+    text-align: center;
+    text-shadow: 5px 5px 7px rgb(206, 143, 255);
+    visibility: hidden;
+    position: relative;
+    top: 50px;
+}
+
+.container{
+    height: 300px;
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.card {
+    height: 280px;
+    width: 250px;
+    word-spacing: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 9px oklch(0.279 0.041 260.031);
+}
+
+.card:hover {
+    height: 283px;
+    width: 253px;
+}
+
+footer {
+    height: 50px;
+    background: linear-gradient(to right, darkblue, lightblue);
+    text-align: center;
+    padding-top: 1px;
+    
+}
+.footer-text{
+    color: white;
+    font-size: 18px;
+    text-shadow: 3px 4px 2px black;
+}
+
+/* SEGUNDA PAGINA */
+
+.container-game{
+    height: 550px;
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.card-img{
+    visibility: hidden;
+    height: 220px;
+    width: 190px;
+    border-radius: 20px;
+}
+
+
+.card-wrap{
+    height: 220px;
+    width: 190px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 10px 6px black;
+}
