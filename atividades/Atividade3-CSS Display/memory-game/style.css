@@ -26,7 +26,6 @@ header {
     text-shadow: 3px 6px 2px black;
     display: inline;
     font-size: 42px;
-
 }
 
 #selection {
@@ -53,7 +52,7 @@ header {
     width: 250px;
     word-spacing: 30px;
     border-radius: 20px;
-    box-shadow: 10px 10px 9px oklch(0.279 0.041 260.031);
+    box-shadow: 14px 12px 7px oklch(0.09 0 272.12)
 }
 
 .card:hover {
