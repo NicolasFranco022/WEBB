@@ -1,35 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/tela-inicial.css">
+    <link rel="stylesheet" href="css/tela-carregamento.css">
+    <link rel="stylesheet" href="css/menu-principal.css">
 </head>
 <body>
-    <header>
-        <img src="img/minha-foto.jpg" alt="Foto de Nicolas" class="foto-perfil">
-        <div class="titulo-container">
-            <h1>📂 Meu Portfólio</h1>
-            <p>Minhas atividades e projetos</p>
-        </div>
-    </header>
 
-    <main>
-        <section class="atividades">
-            <h2>📌 Minhas Atividades</h2>
-            <ul>
-                <li><a href="atividades/Atividade1-HTML-Formulario/index1.html">🔗 Atividade - Formulário</a></li>
-                <li><a href="atividades/Atividade2-CSS-Seletores/index.html">🔗 Atividade - Site Noticías</a></li>
-                <li><a href="atividades/Atividade3-CSS Display/memory-game/index.html">🔗 Atividade - Memory Game</a></li>
-            </ul>
-        </section>
+    <section id="tela-inicial" class="tela-inicial">
+        <div class="container-inicial">
+            <img src="img/minha-foto.jpg" alt="Minha Foto" class="foto-perfil">
+            <h1 class="titulo-inicial">Portfólio - Nicolas Franco</h1>
+            <button id="botao-iniciar" class="botao-iniciar">Entrar</button>
+        </div>
+    </section>
+
+    <section id="tela-carregamento" class="tela-carregamento" style="display: none;">
+        <span class="texto-bem-vindo">BEM-VINDO</span>
+    </section>
+
+   
+    <main id="conteudo-principal" style="display: none; opacity: 0;">
+
+        <div id="tela-principal" class="tela-principal">
+            <div class="container-principal">
+                <img src="img/minha-foto2.png" alt="Foto de Perfil" class="foto-perfil">
+                <p class="introducao">Olá! Meu nome é Nicolas e sou apaixonado por tecnologia, design e inovação.</p>
+            </div>
+
+            <button id="botao-menu" class="botao-menu">☰</button>
+            <nav id="menu-lateral" class="menu-lateral">
+                <ul>
+                    <li><a href="index.html">🏠 Início</a></li>
+                    <li><a href="/WEBB/html/atividades.html">📌 Atividades</a></li>
+                    <li><a href="/WEBB/html/contato.html">📧 Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </main>
 
-    
-    <footer>
-        <p>© 2025 - Meu Site Pessoal | Desenvolvido por Nicolas</p>
-        <br><br><br><br>
-    </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

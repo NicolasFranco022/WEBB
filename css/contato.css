@@ -1,0 +1,34 @@
+
+.lista-contato {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.lista-contato li {
+    padding: 12px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 18px;
+}
+
+.lista-contato li:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.lista-contato li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.lista-contato i {
+    font-size: 22px;
+}

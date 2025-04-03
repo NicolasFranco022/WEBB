@@ -1,0 +1,96 @@
+.tela-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #1e1e1e, #121212);
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.container-inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: float 3s ease-in-out infinite;
+}
+
+.titulo-inicial {
+    font-size: 2rem;
+    font-weight: bold;
+    animation: fadeInUp 2s 0.5s ease-out forwards;
+}
+
+
+.botao-iniciar {
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #444, #222);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.botao-iniciar:hover {
+    background: linear-gradient(135deg, #666, #333);
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* efeito muito massa */
+.botao-iniciar:active {
+    transform: scale(0.97);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .titulo-inicial {
+        font-size: 1.7rem;
+    }
+    .foto-perfil {
+        width: 90px;
+        height: 90px;
+    }
+    .botao-iniciar {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
