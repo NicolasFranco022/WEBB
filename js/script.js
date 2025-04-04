@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 telaInicial.style.display = "none";
                 telaCarregamento.style.display = "flex";
-                telaCarregamento.style.opacity = "0";
+                //telaCarregamento.style.opacity = "0";
                 telaCarregamento.style.transform = "translateY(30px)";
                 telaCarregamento.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
 
