@@ -7,19 +7,13 @@
     text-align: center;
     color: white;
     flex-direction: column;
-    animation: fadeInUp 1.5s ease-out forwards;
-}
-
-.gif-carregamento {
-    width: 80px;
-    height: 80px;
-    animation: girar 2s linear infinite;
+    animation: fadeInUp 1.0s ease-out forwards;
 }
 
 .texto-carregando {
     font-size: 1.5rem;
     margin-top: 10px;
-    animation: fadeIn 1.5s 0.5s ease-out forwards;
+    animation: fadeIn 0.5s 0.5s ease-out forwards;
 }
 
 
