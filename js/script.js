@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const botaoIniciar = document.getElementById("botao-iniciar");
-    const telaInicial = document.getElementById("tela-inicial");
-    const telaCarregamento = document.getElementById("tela-carregamento");
-    const conteudoPrincipal = document.getElementById("conteudo-principal");
+    const conteudoPrincipal = document.getElementById("conteudo-principal");    
+    const introducao = document.getElementById("introducao");
     const botaoMenu = document.getElementById("botao-menu");
     const menuLateral = document.getElementById("menu-lateral");
-    const introducao = document.getElementById("introducao");
+    const telaInicial = document.querySelector(".tela-inicial");
 
     if (botaoIniciar) {
         botaoIniciar.addEventListener("click", function () {
@@ -15,48 +14,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(() => {
                 telaInicial.style.display = "none";
-                telaCarregamento.style.display = "flex";
-                //telaCarregamento.style.opacity = "0";
-                telaCarregamento.style.transform = "translateY(30px)";
-                telaCarregamento.style.transition = "opacity 1s ease-in-out, transform 1s ease-in-out";
+                conteudoPrincipal.style.display = "block";
+                conteudoPrincipal.style.opacity = "0";
+                conteudoPrincipal.style.transform = "translateY(20px)";
+                conteudoPrincipal.style.transition = "opacity 1s ease-out, transform 1s ease-out";
 
                 setTimeout(() => {
-                    telaCarregamento.style.opacity = "1";
-                    telaCarregamento.style.transform = "translateY(0)";
+                    conteudoPrincipal.style.opacity = "1";
+                    conteudoPrincipal.style.transform = "translateY(0)";
+                    introducao.style.display = "block"; 
                 }, 100);
-
-                setTimeout(() => {
-                    telaCarregamento.style.opacity = "0";
-                    telaCarregamento.style.transform = "translateY(-20px)";
-
-                    setTimeout(() => {
-                        telaCarregamento.style.display = "none";
-                        conteudoPrincipal.style.display = "block";
-                        conteudoPrincipal.style.opacity = "0";
-                        conteudoPrincipal.style.transform = "translateY(20px)";
-                        conteudoPrincipal.style.transition = "opacity 1s ease-out, transform 1s ease-out";
-
-                        setTimeout(() => {
-                            conteudoPrincipal.style.opacity = "1";
-                            conteudoPrincipal.style.transform = "translateY(0)";
-                            introducao.style.display = "block"; // 
-                        }, 100);
-                    }, 800);
-                }, 2000);
             }, 800);
         });
     }
 
-    // menu lateral
+  
     if (botaoMenu && menuLateral) {
         botaoMenu.addEventListener("click", function () {
             menuLateral.classList.toggle("menu-aberto");
+            telaInicial.classList.toggle("menu-aberto");
         });
 
-        // fecha o menu se clicar fora dele teste
+        
         document.addEventListener("click", function (event) {
             if (!menuLateral.contains(event.target) && event.target !== botaoMenu) {
                 menuLateral.classList.remove("menu-aberto");
+                telaInicial.classList.remove("menu-aberto");
             }
         });
     }

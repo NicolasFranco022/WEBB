@@ -1,4 +1,27 @@
 
+.foto-perfil {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.foto-perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.introducao {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 600px; 
+}
+
 .tela-principal {
     display: flex;
     flex-direction: column;
@@ -6,78 +29,33 @@
     justify-content: center;
     min-height: 100vh;
     background-color: #f8f8f8;
-    color: #333; 
-    font-family: Arial, sans-serif;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     padding: 20px;
-    transition: margin-left 0.4s ease-in-out;
+    transition: margin-left 0.3s ease-in-out;
 }
 
-/* quando o menu estiver aberto, o conteúdo se ajusta */
+
 .tela-principal.menu-aberto {
     margin-left: 280px;
 }
 
-
-.container-principal {
-    max-width: 600px;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
-
-
-.foto-perfil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 4px solid #333;
-}
-
-
-.introducao {
-    font-size: 18px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-
-.botao-menu {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #333;
-    color: white;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 22px;
-    transition: background 0.3s ease-in-out;
-    z-index: 1000; 
-}
-
-.botao-menu:hover {
-    background: #555;
-}
-
-
 .menu-lateral {
     position: fixed;
     top: 0;
-    left: -280px;
-    width: 280px;
+    left: -300px;
+    width: 300px;
     height: 100%;
-    background: #ffffff; 
-    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
-    padding-top: 60px;
-    transition: left 0.4s ease-in-out;
-    z-index: 999;
+    background: rgba(30, 30, 30, 0.95); 
+    backdrop-filter: blur(10px);
+    box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.3);
+    padding-top: 80px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    border-radius: 0 10px 10px 0;
 }
+
 
 .menu-lateral.menu-aberto {
     left: 0;
@@ -87,55 +65,86 @@
 .menu-lateral ul {
     list-style: none;
     padding: 0;
-    text-align: center;
+    margin: 0;
+    text-align: left;
 }
 
 
 .menu-lateral ul li {
-    padding: 15px;
-    margin: 15px;
-    background: rgba(0, 0, 0, 0.07);
-    border-radius: 15px; 
+    padding: 15px 20px;
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-    font-size: 18px;
-}
-
-.menu-lateral ul li:hover {
-    background: rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-lateral ul li a {
     text-decoration: none;
-    color: #333;
-    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-lateral ul li a i {
+    font-size: 22px;
+}
+
+
+.menu-lateral ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.03);
+}
+
+
+.botao-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     padding: 10px;
+}
+
+.botao-menu div {
+    width: 30px;
+    height: 4px;
+    background: #333;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.menu-aberto .botao-menu div:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-aberto .botao-menu div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-aberto .botao-menu div:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 
 @media screen and (max-width: 768px) {
     .tela-principal.menu-aberto {
-        margin-left: 0; 
+        margin-left: 0;
     }
 
     .menu-lateral {
-        width: 100%; 
+        width: 100%;
         left: -100%;
     }
 
     .menu-lateral.menu-aberto {
         left: 0;
-    }
-}
-
-/* Animação de entrada */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
