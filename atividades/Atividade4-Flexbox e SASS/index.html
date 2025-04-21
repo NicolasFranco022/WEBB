@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Flexbox</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <h2>SIMULADOR<br>Flexbox</h2>
+
+      <div class="section">
+        <h3>Preenchimento</h3>
+        <div class="colors">
+          <button class="color" style="background:#e381eb;" data-color="#e381eb"></button>
+          <button class="color" style="background:#f4a678;" data-color="#f4a678"></button>
+          <button class="color" style="background:#aad7f0;" data-color="#aad7f0"></button>
+          <button class="color" style="background:#fff4aa;" data-color="#fff4aa"></button>
+          <button class="color" style="background:#d1ffa2;" data-color="#d1ffa2"></button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Formato</h3>
+        <div class="shapes">
+          <button class="shape" data-shape="square">⬛</button>
+          <button class="shape" data-shape="circle">🔵</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Tamanho</h3>
+        <input type="number" id="size-input" value="140">
+      </div>
+
+      <div class="section">
+        <h3>Alinhamento</h3>
+        <select id="flex-direction">
+          <option value="row">ROW</option>
+          <option value="row-reverse">ROW-REVERSE</option>
+          <option value="column">COLUMN</option>
+          <option value="column-reverse">COLUMN-REVERSE</option>
+        </select>
+        <select id="justify-content">
+          <option value="flex-start">FLEX-START</option>
+          <option value="center">CENTER</option>
+          <option value="flex-end">FLEX-END</option>
+          <option value="space-between">SPACE-BETWEEN</option>
+          <option value="space-around">SPACE-AROUND</option>
+          <option value="space-evenly">SPACE-EVENLY</option>
+        </select>
+        <select id="align-items">
+          <option value="stretch">STRETCH</option>
+          <option value="flex-start">FLEX-START</option>
+          <option value="center">CENTER</option>
+          <option value="flex-end">FLEX-END</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="display" id="display">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

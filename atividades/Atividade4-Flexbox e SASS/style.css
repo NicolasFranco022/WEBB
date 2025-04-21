@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+.container .menu {
+  width: 250px;
+  background: #ccc;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.container .menu h2, .container .menu h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container .menu .section {
+  margin-bottom: 20px;
+}
+.container .menu .section .colors, .container .menu .section .shapes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.container .menu .section .colors button, .container .menu .section .shapes button {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #555;
+  cursor: pointer;
+}
+.container .menu .section input, .container .menu .section select {
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  margin-top: 5px;
+}
+.container .display {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 10px;
+  background: white;
+  align-items: stretch;
+}
+.container .display .box {
+  width: 140px;
+  height: 140px;
+  background: #e381eb;
+  color: #333;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #555;
+  transition: all 0.3s;
+}
+.container .display .circle {
+  border-radius: 50%;
+}/*# sourceMappingURL=style.css.map */
