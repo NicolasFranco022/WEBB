@@ -1,0 +1,33 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+.container-fluid {
+    height: 100vh;
+}
+
+.lado-login {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.lado-imagem {
+    background-image: url('logo_ifpr.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.icones-sociais img {
+    width: 40px;
+    margin: 10px;
+}
