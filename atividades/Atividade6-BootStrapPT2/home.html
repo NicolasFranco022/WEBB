@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados IFPR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Carrega o pacote corechart
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            // ---------- GRÁFICO DE BARRAS - Frequência dos alunos ----------
+            var freqData = google.visualization.arrayToDataTable([
+                ['Aluno', 'FREQUENCIA', { role: 'style' }],
+                ['1º BIM', 95, 'color: black'],
+                ['2º BIM', 82, 'color: gray'],
+                ['3º BIM', 76, 'color: black'],
+                ['4º BIM', 60, 'color: gray']
+            ]);
+
+            var freqOptions = {
+                title: 'FREQUENCIA',
+                chartArea: { width: '80%' },
+                legend: 'none'
+
+            };
+
+            var freqChart = new google.visualization.BarChart(document.getElementById('grafico_frequencia'));
+            freqChart.draw(freqData, freqOptions);
+
+            // ---------- GRÁFICO DE PIZZA - Conceitos da turma ----------
+            var conceitoData = google.visualization.arrayToDataTable([
+                ['Conceito', 'Quantidade'],
+                ['A', 12],
+                ['B', 8],
+                ['C', 9],
+                ['D', 6]
+            ]);
+
+            var conceitoOptions = {
+                title: 'CONCEITOS',
+                titleTextStyle: { color: '#000', bold: true, fontSize: 14 },
+                legend: {
+                    position: 'right',
+                    alignment: 'center',
+                    textStyle: { color: '#000' }
+                },
+                pieSliceText: 'percentage',
+                backgroundColor: '#ffffff',
+                slices: {
+                    0: { color: '#dddddd' },
+                    1: { color: '#aaaaaa' },
+                    2: { color: '#555555' },
+                    3: { color: '#111111' }
+                }
+            };
+
+            var conceitoChart = new google.visualization.PieChart(document.getElementById('grafico_conceitos'));
+            conceitoChart.draw(conceitoData, conceitoOptions);
+        }
+    </script>
+</head>
+
+<body>
+    <nav style="border-bottom-right-radius: 100px; border-bottom-left-radius: 100px;"
+        class="navbar navbar-expand-lg navbar-dark bg-black border-bottom">
+        <div class="container d-flex align-items-center">
+            <a href="#" class="navbar-brand">
+                <img class="rounded-circle w-25 h-25" src="assets/images/images.png" alt="">
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#itens">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="itens">
+                <ul class="navbar-nav">
+                    <li class="nav-item me-4">
+                        <button type="button" class="btn btn-light text-dark position-relative me-4">
+                            Novos Dados
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                57
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="nav-item me-4">
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="Anual">Anual</option>
+                            <option value="Mensal">Mensal</option>
+                            <option value="Semanal">Semanal</option>
+                        </select>
+                    </li>
+                    <li class="nav-item me-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label link-light" for="flexCheckDefault">
+                                Servidores
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label link-light" for="flexCheckChecked">
+                                Estudantes
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item me-4">
+                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
+                            value="#563d7c" title="Choose your color">
+                    </li>
+                    <li class="nav-item me-4">
+                        <button class="btn bg-black link-light dropdown-toggle" type="button" id="dropdownMais" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mais
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMais">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRegistro">Registro de Conceito</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRegistro" aria-labelledby="offcanvasRegistroLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRegistroLabel">Registro de Conceito</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <label for="disciplina" class="form-label">Disciplina</label>
+                <select class="form-select" id="disciplina">
+                    <option value="Artes">Artes</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+                    <option value="Engenharia de Software">Engenharia de Software</option>
+                    <option value="Geografia">Geografia</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <label class="form-label">Conceito</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="conceito" id="conceitoA" value="A">
+                    <label class="form-check-label" for="conceitoA">A</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="conceito" id="conceitoB" value="B">
+                    <label class="form-check-label" for="conceitoB">B</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="conceito" id="conceitoC" value="C" checked>
+                    <label class="form-check-label" for="conceitoC">C</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" name="conceito" id="conceitoD" value="D">
+                    <label class="form-check-label" for="conceitoD">D</label>
+                </div>
+            </div>
+            <div class="mt-3">
+                <label for="observacao" class="form-label">Observação</label>
+                <textarea class="form-control" id="observacao" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary mt-3">Salvar</button>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row no-gutters min-vh-100">
+
+            <div class="container col-2">
+                <div class="column">
+                  <div class="mt-5 mb-5 w-100">
+                    <div class="card text-center">
+                      <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-mortarboard-fill"></i> Conceito</h5>
+                        <p class="card-text display-4">B</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-5 w-100">
+                    <div class="card text-center">
+                      <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-graph-up"></i> Frequência</h5>
+                        <p class="card-text display-4">89.5%</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-100">
+                    <div class="card text-center">
+                      <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-alarm"></i> Horas Afins</h5>
+                        <p class="card-text display-4">74</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="container col-5 d-flex flex-column">
+                <label for="customRange3" class="form-label"></label>
+                <input type="range" class="form-range" min="0" max="5" step="0.5"
+                id="customRange3">
+                <div class="w-100 border-1 border-black">
+
+                    <div id="grafico_frequencia" style="width: 700px; height: 300px;"></div>
+                </div>
+
+                <div class="w-100 border-1 border-black">
+                    <div id="grafico_conceitos" style="width: 700px; height: 400px;"></div>
+                </div>
+            </div>
+
+            <div class="col-4 container ">
+                <div class="p-3 border rounded bg-white shadow-sm">
+                    
+                
+                    <table class="table table-bordered table-dark text-center align-middle mb-4">
+                      <thead>
+                        <tr>
+                          <th>Componente Curricular</th>
+                          <th>Frequência (%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>Artes</td><td>89.5</td></tr>
+                        <tr><td>Biologia</td><td>92.2</td></tr>
+                        <tr><td>Desenvolvimento Web</td><td>78.5</td></tr>
+                        <tr><td>Engenharia de Software</td><td>92.2</td></tr>
+                        <tr><td>Geografia</td><td>95.8</td></tr>
+                      </tbody>
+                    </table>
+              
+                    
+                    
+                    <table class="table table-bordered table-light text-center align-middle">
+                      <thead class="table-secondary">
+                        <tr>
+                          <th>Conceitos</th>
+                          <th>Qtde Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>A</td><td>189</td></tr>
+                        <tr><td>B</td><td>228</td></tr>
+                        <tr><td>C</td><td>211</td></tr>
+                        <tr><td>D</td><td>187</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
