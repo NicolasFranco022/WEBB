@@ -9,7 +9,7 @@ const scoreDisplay = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const game = document.getElementById('game');
 
-// Timer
+
 setInterval(() => {
   if (gameRunning) {
     timer++;
@@ -20,7 +20,7 @@ setInterval(() => {
   }
 }, 1000);
 
-// Pause toggle
+
 window.addEventListener('keydown', (e) => {
   if (e.code === 'Escape') {
     gameRunning = !gameRunning;
@@ -28,7 +28,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Player movement
+
 window.addEventListener('keydown', (e) => {
   if (!gameRunning) return;
   const step = 20;
@@ -44,7 +44,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// Shoot missile
+
 function shootMissile() {
   const missile = document.createElement('div');
   missile.className = 'missile';
@@ -64,7 +64,7 @@ function shootMissile() {
   }, 30);
 }
 
-// Spawn alien
+
 function spawnAlien() {
   if (!gameRunning) return;
 
@@ -98,7 +98,7 @@ setInterval(() => {
   if (gameRunning) spawnAlien();
 }, 2000);
 
-// Detect missile hit
+
 function detectHit(missile, missileInterval) {
   const aliens = document.querySelectorAll('.alien');
   aliens.forEach(alien => {
@@ -119,7 +119,7 @@ function detectHit(missile, missileInterval) {
   });
 }
 
-// Restart game
+
 function restartGame() {
   gameRunning = false;
   alert('Game Over! Reiniciando...');
