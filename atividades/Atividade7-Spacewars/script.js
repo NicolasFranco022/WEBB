@@ -1,7 +1,14 @@
+let faseAtual = 1;
+let aliensRestantes = 3;
 let gameRunning = true;
 let timer = 0;
 let life = 3;
 let score = 0;
+let vidaEmPerigo = false;
+let alienSpeed = 30;
+
+const loseText = document.getElementById('lose');
+const gameOverText = document.getElementById('gameOver');
 const player = document.getElementById('player');
 const pausedText = document.getElementById('paused');
 const lifeDisplay = document.getElementById('life');
@@ -9,7 +16,14 @@ const scoreDisplay = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const game = document.getElementById('game');
 
+const fundos = [
+  'url(img/background.jpg)', 
+  'url(img/background2.jpg)', 
+  'url(img/background3.jpg)', 
+  'url(img/background4.jpg)'
+];
 
+// Timer
 setInterval(() => {
   if (gameRunning) {
     timer++;
@@ -20,15 +34,15 @@ setInterval(() => {
   }
 }, 1000);
 
-
+// Pausar
 window.addEventListener('keydown', (e) => {
-  if (e.code === 'Escape') {
+  if (e.code === 'KeyP') {
     gameRunning = !gameRunning;
     pausedText.style.display = gameRunning ? 'none' : 'block';
   }
 });
 
-
+// Movimento e tiro
 window.addEventListener('keydown', (e) => {
   if (!gameRunning) return;
   const step = 20;
@@ -44,8 +58,10 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-
 function shootMissile() {
+  const activeMissiles = document.querySelectorAll('.missile').length;
+  if (activeMissiles >= 2) return;
+
   const missile = document.createElement('div');
   missile.className = 'missile';
   missile.style.left = `${player.offsetLeft + player.offsetWidth / 2 - 5}px`;
@@ -64,40 +80,46 @@ function shootMissile() {
   }, 30);
 }
 
+function spawnAliens() {
+  const spacing = 100;
+  const alienWidth = 100;
+  const totalWidth = (3 * alienWidth) + (2 * spacing);
+  const startX = (window.innerWidth - totalWidth) / 2;
 
-function spawnAlien() {
-  if (!gameRunning) return;
+  aliensRestantes = 3;
 
-  const alien = document.createElement('img');
-  alien.src = 'img/alien.png';
-  alien.className = 'alien';
-  alien.style.position = 'absolute';
-  alien.style.width = '50px';
-  alien.style.top = '0px';
-  alien.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
-  game.appendChild(alien);
+  for (let i = 0; i < 3; i++) {
+    const alien = document.createElement('img');
+    alien.src = 'img/alien.png';
+    alien.className = 'alien';
+    alien.style.position = 'absolute';
+    alien.style.width = `${alienWidth}px`;
+    alien.style.top = '0px';
+    alien.style.left = `${startX + i * (alienWidth + spacing)}px`;
+    game.appendChild(alien);
+    moveAlien(alien);
+  }
+}
 
+function moveAlien(alien) {
   const interval = setInterval(() => {
-    if (!gameRunning || !document.body.contains(alien)) return;
+    if (!gameRunning || !document.body.contains(alien)) {
+      clearInterval(interval);
+      return;
+    }
+
     const top = parseInt(alien.style.top);
-    if (top >= window.innerHeight - 100) {
+    if (top >= window.innerHeight - 120) {
       clearInterval(interval);
       alien.remove();
-      if (gameRunning) {
-        life--;
-        lifeDisplay.textContent = life;
-        if (life <= 0) restartGame();
+      if (gameRunning && !vidaEmPerigo) {
+        perderVida();
       }
     } else {
       alien.style.top = `${top + 2}px`;
     }
-  }, 30);
+  }, alienSpeed);
 }
-
-setInterval(() => {
-  if (gameRunning) spawnAlien();
-}, 2000);
-
 
 function detectHit(missile, missileInterval) {
   const aliens = document.querySelectorAll('.alien');
@@ -114,22 +136,87 @@ function detectHit(missile, missileInterval) {
       missile.remove();
       clearInterval(missileInterval);
       score++;
+      aliensRestantes--;
       scoreDisplay.textContent = score;
+
+      if (aliensRestantes === 0) {
+        setTimeout(nextPhase, 1000);
+      }
     }
   });
 }
 
+function perderVida() {
+  if (vidaEmPerigo) return;
+  vidaEmPerigo = true;
+
+  life--;
+  lifeDisplay.textContent = life;
+  loseText.style.display = 'block';
+
+  if (life > 0) {
+    setTimeout(() => {
+      loseText.style.display = 'none';
+      resetAliens();
+    }, 2000);
+  } else {
+    setTimeout(() => {
+      loseText.style.display = 'none';
+      gameOverText.style.display = 'block';
+      setTimeout(() => {
+        gameOverText.style.display = 'none';
+        restartGame();
+      }, 3000);
+    }, 2000);
+  }
+}
+
+function resetAliens() {
+  document.querySelectorAll('.alien, .missile').forEach(e => e.remove());
+  spawnAliens();
+  vidaEmPerigo = false;
+}
+
+function nextPhase() {
+  faseAtual++;
+
+  if (faseAtual > fundos.length) {
+    gameRunning = false;
+    const winText = document.getElementById('win');
+    winText.style.display = 'block';
+
+    setTimeout(() => {
+      winText.style.display = 'none';
+      restartGame();
+    }, 3000);
+    return;
+  }
+
+  game.style.backgroundImage = fundos[faseAtual - 1];
+  alienSpeed = Math.max(10, alienSpeed - 5);
+
+  document.querySelectorAll('.missile, .alien').forEach(e => e.remove());
+  spawnAliens();
+}
 
 function restartGame() {
-  gameRunning = false;
   alert('Game Over! Reiniciando...');
   life = 3;
   score = 0;
   timer = 0;
+  vidaEmPerigo = false;
+  faseAtual = 1;
+  alienSpeed = 30;
+  gameRunning = true;
   lifeDisplay.textContent = life;
   scoreDisplay.textContent = score;
   timerDisplay.textContent = '00:00:00';
   pausedText.style.display = 'none';
+  game.style.backgroundImage = fundos[0];
   document.querySelectorAll('.alien, .missile').forEach(e => e.remove());
-  gameRunning = true;
+  spawnAliens();
 }
+
+// Inicialização
+game.style.backgroundImage = fundos[0];
+spawnAliens();
