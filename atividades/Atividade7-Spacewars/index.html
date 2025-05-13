@@ -1,55 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Space Cowboys</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Invaders</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-<body onload="contar()">
-    <div id="box-stats">
-        <div class="box-stats-item">
-            <img src="assets/images/clock.png" alt="Relogio">
-            <div id="relogio">
-                <p id="valH">00</p>
-                <p>:</p>
-                <p id="valM">00</p>
-                <p>:</p>
-                <p id="valS">00</p>
-            </div>
-        </div>
-
-        <div class="box-stats-item">
-            <img src="assets/images/nave.png" alt="Nave Espacial Amiga">
-            <span>
-                LIFE:0
-            </span>
-        </div>
-        <div class="box-stats-item">
-            <img src="assets/images/alien.png" alt="Nave Espacial Inimiga">
-            <span>
-                ALIEN:0
-            </span>
-        </div>
+<body>
+  <div id="game">
+    <div id="hud">
+      <img src="img/clock.png" class="icon" />
+      <div id="timer">00:00:00</div>
+      <div class="status">
+        <img src="img/nave.png" class="icon" />
+        LIFE: <span id="life">3</span>
+      </div>
+      <div class="status">
+        <img src="img/alien.png" class="icon" />
+        ALIEN: <span id="score">0</span>
+      </div>
     </div>
 
-    <div id="content">
-        <div id="naveAmiga">
-            <img src="assets/images/nave.png" alt="">
-        </div>
-    </div>
+    <div id="paused">GAME PAUSED</div>
+    <div id="player"></div>
+  </div>
 
-    <div id="paused">
-        <p>GAME PAUSED</p>
-    </div>
-
-
-
-    <script src="assets/js/script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>

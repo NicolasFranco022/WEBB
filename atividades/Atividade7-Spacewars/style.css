@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+  
+  #game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('img/background.jpg') no-repeat center center;
+    background-size: cover;
+  }
+  
+  #hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 14px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  #timer {
+    margin: 5px 0;
+  }
+  
+  .status {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 20px;
+    margin-right: 5px;
+  }
+  
+  #paused {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    display: none;
+    z-index: 20;
+  }
+  
+  #player {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 100px;
+    background: url('img/nave.png') no-repeat center center;
+    background-size: contain;
+    z-index: 5;
+  }
+  
+  .missile {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: url('img/missil.png') no-repeat center center;
+    background-size: cover;
+  }  
